@@ -43,6 +43,14 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
+    "phonenumber_field",
+    "private_storage",
+
+    "user",
+    "promotion",
+    "event",
+    "reservation",
 ]
 
 MIDDLEWARE = [
