@@ -9,3 +9,4 @@ from .models import Offer
 class OfferAdmin(admin.ModelAdmin):
 
   list_display = ['type', 'number_seats', 'discount']
+  ordering = ['number_seats', 'discount']

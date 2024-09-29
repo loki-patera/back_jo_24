@@ -9,6 +9,7 @@ from .models import Booking, Booking_Line
 class BookingAdmin(admin.ModelAdmin):
 
   list_display = ['booking_date', 'person']
+  ordering = ['booking_date', 'person']
 
 # -------------------------------------------------------------------------------------------------------------------- #
 

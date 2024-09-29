@@ -29,6 +29,7 @@ class SportAdmin(admin.ModelAdmin):
 
   
   list_display = ['title', 'image_tag']
+  ordering = ['title']
 
 # -------------------------------------------------------------------------------------------------------------------- #
 
@@ -36,3 +37,5 @@ class SportAdmin(admin.ModelAdmin):
 class EventAdmin(admin.ModelAdmin):
 
   list_display = ['sport', 'location', 'start_date', 'end_date']
+  list_filter = ['start_date', 'sport']
+  ordering = ['start_date', 'sport']
