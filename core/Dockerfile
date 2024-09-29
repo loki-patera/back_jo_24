@@ -5,9 +5,16 @@ ENV PYTHONUNBUBUFFERED=1
 
 WORKDIR /app/back
 
+RUN apk update && apk add --no-cache netcat-openbsd
+
 RUN pip install --upgrade pip
 
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
+COPY ./entrypoint.sh .
+RUN chmod +x /app/back/entrypoint.sh
+
 COPY . .
+
+ENTRYPOINT [ "sh","entrypoint.sh" ]
