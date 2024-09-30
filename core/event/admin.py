@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.db import models
 from django.utils.html import format_html
 
-from .models import Event, Sport
+from .models import Competition, Event, Sport
 from .utils import ImageWidget
 
 # -------------------------------------------------------------------------------------------------------------------- #
@@ -33,9 +33,15 @@ class SportAdmin(admin.ModelAdmin):
 
 # -------------------------------------------------------------------------------------------------------------------- #
 
+class EventInline(admin.TabularInline):
+
+  model = Competition
+  extra = 0
+  
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
 
   list_display = ['sport', 'location', 'start_date', 'end_date']
   list_filter = ['start_date', 'sport']
   ordering = ['start_date', 'sport']
+  inlines = [EventInline]
