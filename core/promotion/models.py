@@ -18,3 +18,7 @@ class Offer(models.Model):
     
     verbose_name = 'Offre'
     verbose_name_plural = 'Offres'
+  
+  def __str__(self) -> str:
+
+    return f'{self.type}'
