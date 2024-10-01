@@ -49,6 +49,20 @@ class SportTestCase(TestCase):
     temp_sport = Sport.objects.get(pk=self.element_sport.id_sport)
 
     self.assertEqual(temp_sport.image, "images/sports/golf.jpg")
+  
+  # ------------------------------------------------------ #
+
+  def test_sport_delete(self) -> None:
+
+    """ Teste si une épreuve sportive a été supprimée en base de données """
+
+    number_sports_initial = Sport.objects.count()
+
+    self.element_sport.delete()
+
+    number_sports_final = Sport.objects.count()
+
+    self.assertTrue(number_sports_final == number_sports_initial - 1)
 
 # ____________________________________________________________________________________________________________________ #
 
@@ -107,6 +121,20 @@ class EventTestCase(TestCase):
     temp_event = Event.objects.get(pk=self.element_event.id_event)
 
     self.assertEqual(temp_event.end_date, time_zone(datetime(2024, 8, 5, 20, 0)))
+  
+  # ------------------------------------------------------ #
+
+  def test_event_delete(self) -> None:
+
+    """ Teste si un évènement a été supprimé en base de données """
+
+    number_events_initial = Event.objects.count()
+
+    self.element_event.delete()
+
+    number_events_final = Event.objects.count()
+
+    self.assertTrue(number_events_final == number_events_initial - 1)
 
 # ____________________________________________________________________________________________________________________ #
 
@@ -171,3 +199,17 @@ class CompetitionTestCase(TestCase):
     temp_competition = Competition.objects.get(pk=self.element_competition.id_competition)
 
     self.assertEqual(temp_competition.gender, "Femme")
+  
+  # ------------------------------------------------------ #
+
+  def test_competition_delete(self) -> None:
+
+    """ Teste si une compétition a été supprimée en base de données """
+
+    number_competitions_initial = Competition.objects.count()
+
+    self.element_competition.delete()
+
+    number_competitions_final = Competition.objects.count()
+
+    self.assertTrue(number_competitions_final == number_competitions_initial - 1)

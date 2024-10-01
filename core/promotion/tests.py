@@ -49,3 +49,17 @@ class OfferTestCase(TestCase):
     temp_offer = Offer.objects.get(pk=self.element_offer.id_offer)
 
     self.assertEqual(temp_offer.discount, 14)
+  
+  # ------------------------------------------------------ #
+
+  def test_offer_delete(self) -> None:
+
+    """ Teste si une offre a été supprimée en base de données """
+
+    number_offers_initial = Offer.objects.count()
+
+    self.element_offer.delete()
+
+    number_offers_final = Offer.objects.count()
+
+    self.assertTrue(number_offers_final == number_offers_initial - 1)
