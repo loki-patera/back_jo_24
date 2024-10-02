@@ -16,6 +16,14 @@ class OfferTestCase(TestCase):
     self.element_offer.number_seats = 5
     self.element_offer.discount = 13
     self.element_offer.save()
+  
+  # ------------------------------------------------------ #
+
+  def test_str_offer(self) -> None:
+
+    """ Teste si la méthode __str__ de la classe Offer retourne la valeur correcte """
+
+    self.assertTrue(Offer.__str__(self.element_offer) == "Groupe - 4 adultes / 1 enfant")
 
   # ------------------------------------------------------ #
 

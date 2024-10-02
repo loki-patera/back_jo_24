@@ -20,6 +20,14 @@ class SportTestCase(TestCase):
   
   # ------------------------------------------------------ #
 
+  def test_str_sport(self) -> None:
+
+    """ Teste si la méthode __str__ de la classe Sport retourne la valeur correcte """
+
+    self.assertTrue(Sport.__str__(self.element_sport) == "Golf")
+  
+  # ------------------------------------------------------ #
+
   def test_sport_create(self) -> None:
 
     """ Teste si une épreuve sportive a été ajoutée en base de données """
@@ -81,9 +89,17 @@ class EventTestCase(TestCase):
     self.element_event.sport = self.element_sport
     self.element_event.location = "Vélodrome National | SAINT-QUENTIN-EN-YVELINES"
     self.element_event.start_date = time_zone(datetime(2024, 8, 5, 17, 0))
-    self.element_event.end_date = time_zone(datetime(2028, 9, 6, 1, 30))
+    self.element_event.end_date = time_zone(datetime(2024, 8, 5, 23, 30))
     self.element_event.price = 50.00
     self.element_event.save()
+  
+  # ------------------------------------------------------ #
+
+  def test_str_event(self) -> None:
+
+    """ Teste si la méthode __str__ de la classe Event retourne la valeur correcte """
+    
+    self.assertEqual(Event.__str__(self.element_event), "Cyclisme sur piste | 05/08/2024 (17:00 - 23:30)")
   
   # ------------------------------------------------------ #
 
@@ -163,6 +179,17 @@ class CompetitionTestCase(TestCase):
     self.element_competition.phase = "1er Tour"
     self.element_competition.event = self.element_event
     self.element_competition.save()
+  
+    # ------------------------------------------------------ #
+
+  def test_str_competition(self) -> None:
+
+    """ Teste si la méthode __str__ de la classe Competition retourne la valeur correcte """
+
+    self.assertEqual(
+      Competition.__str__(self.element_competition),
+      "Cyclisme sur piste | 05/08/2024 (17:00 - 20:00) | Homme, Vitesse par équipe, 1er Tour"
+    )
 
   # ------------------------------------------------------ #
 

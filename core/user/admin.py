@@ -22,7 +22,7 @@ class PersonAdmin(admin.ModelAdmin):
     
     age = datetime.now().year - instance.date_of_birth.year
 
-    if(age >= 12):
+    if(age > 12):
 
       return 'Adulte'
     

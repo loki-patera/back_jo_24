@@ -27,7 +27,7 @@ class Booking(models.Model):
   
   def __str__(self) -> str:
 
-    date_booking = time_zone(self.booking_date).strftime("%d/%m/%Y - %H:%M")
+    date_booking = time_zone(self.booking_date).strftime("%d/%m/%Y - %H:%M:%S")
 
     return f'{self.person} ({date_booking})'
 
