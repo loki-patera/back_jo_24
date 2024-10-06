@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.core.validators import MinValueValidator
 from django.db import models
 
@@ -22,6 +23,14 @@ class Sport(models.Model):
   def __str__(self) -> str:
 
     return f'{self.title}'
+  
+  # ------------------------------------------------------ #
+
+  def url_image(self) -> str:
+
+    """ Retourne l'url complète de l'image """
+
+    return f'{settings.WEBSITE_URL}{self.image.url}'
 
 # -------------------------------------------------------------------------------------------------------------------- #
 
