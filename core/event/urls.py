@@ -6,5 +6,6 @@ from . import api
 # -------------------------------------------------------------------------------------------------------------------- #
 
 urlpatterns = [
-  path('sports', api.listing_sports, name="sports")
+  path('sports', api.list_sports, name="sports"),
+  path('events', api.list_events, name="events")
 ]

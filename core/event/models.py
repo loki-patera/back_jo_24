@@ -57,6 +57,27 @@ class Event(models.Model):
     end_event = time_zone(self.end_date).strftime("%H:%M)")
     
     return f'{self.sport} | {start_event} - {end_event}'
+  
+  # ------------------------------------------------------ #
+
+  def date(self) -> str:
+
+    """ Retourne la date de l'évènement """
+
+    date_event = time_zone(self.start_date).strftime("%d/%m/%Y")
+
+    return date_event
+
+  # ------------------------------------------------------ #
+
+  def hours(self) -> str:
+
+    """ Retourne les heures de l'évènement """
+
+    start_hour = time_zone(self.start_date).strftime("%Hh%M")
+    end_hour = time_zone(self.end_date).strftime("%Hh%M")
+
+    return f'{start_hour} → {end_hour}'
 
 # -------------------------------------------------------------------------------------------------------------------- #
 

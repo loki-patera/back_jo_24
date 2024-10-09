@@ -1,11 +1,11 @@
 from rest_framework import serializers
 
-from .models import Sport
+from .models import Event, Sport
 
 # -------------------------------------------------------------------------------------------------------------------- #
 # -------------------------------------------------------------------------------------------------------------------- #
 
-class SportsSerializer(serializers.ModelSerializer):
+class SportSerializer(serializers.ModelSerializer):
 
   class Meta:
 
@@ -14,4 +14,22 @@ class SportsSerializer(serializers.ModelSerializer):
       'id_sport',
       'title',
       'url_image'
+    )
+
+# ____________________________________________________________________________________________________________________ #
+
+class EventSerializer(serializers.ModelSerializer):
+
+  # sport = serializers.CharField(source='sport.title')
+
+  class Meta:
+
+    model = Event
+    fields = (
+      'id_event',
+      'sport',
+      'date',
+      'hours',
+      'location',
+      'price'
     )
