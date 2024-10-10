@@ -1,8 +1,8 @@
 from datetime import datetime
 from django.test import TestCase
 
-from .models import Competition, Event, Sport
-from .utils import time_zone
+from event.models import Competition, Event, Sport
+from event.utils import time_zone
 
 # -------------------------------------------------------------------------------------------------------------------- #
 # -------------------------------------------------------------------------------------------------------------------- #

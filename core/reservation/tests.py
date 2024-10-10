@@ -3,7 +3,7 @@ import re
 from django.test import TestCase
 
 from .models import Booking, Booking_Line, Booking_Line_Person
-from event.tests import EventTestCase
+from event.tests.test_models import EventTestCase
 from event.utils import time_zone
 from promotion.tests import OfferTestCase
 from user.tests import PersonTestCase
